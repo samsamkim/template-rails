@@ -1,2 +1,16 @@
-<h1>Errors#internal_server_error</h1>
-<p>Find me in app/views/errors/internal_server_error.html.erb</p>
+<h1>Congrats on Deploying to Aptible!</h1>
+<pre>You're seeing this page because you've hit a 500 error.
+If this is your first time deploying, it's probably because 
+you don't have a Database associated with your App. If it's not
+and you want to stop seeing our custom 500 error page, edit the
+config/routes.rb file. 
+
+This template is supposed to be used with a PostgreSQL Database, 
+which you can provision on Aptible through the CLI using 
+`aptible db:create` or through the Dashboard by pressing
+Create Database.
+
+Once you have your Database created, set the configuration variable
+`DATABASE_URL` to the Database's Credentials and redeploy!
+
+</pre>
