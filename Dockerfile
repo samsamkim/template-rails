@@ -1,17 +1,16 @@
 # syntax=docker/dockerfile:1
 FROM ruby:latest
-RUN apt-get update -qq && apt-get install -y build-essential
+RUN apt-get update \
+ && apt-get -y install build-essential libpq-dev \
+ && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /myapp
-WORKDIR /myapp
-
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
-
+ADD Gemfile /app/
+ADD Gemfile.lock /app/
+WORKDIR /app
 RUN bundle install
 
-# Add a script to be executed every time the container starts.
-COPY . /myapp
+ADD . /app
 
+EXPOSE 3000
 # Configure the main process to run when running the image
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
