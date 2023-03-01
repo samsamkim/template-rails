@@ -70,4 +70,7 @@ Rails.application.configure do
 
   # uncomment when testing locally to produce custom error page
   config.consider_all_requests_local = false
+
+  # don't block hosts - so the template works with any endpoint
+  config.hosts.clear
 end
