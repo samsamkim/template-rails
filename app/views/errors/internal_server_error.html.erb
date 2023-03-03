@@ -12,32 +12,34 @@
 </style>
 
 <div style="display: flex; justify-content: center; width: 100vw; height: 100vh; background-image: url(https://nextgen.aptible.com/background-pattern-v2.png);">
-  <div style="max-width: 640px; padding: 20px;">
-    <h1 style="flex: 1;">Congrats on deploying to Aptible!</h1>
+  <div style="max-width: 640px; padding-top: 20px;">
+    <div style=" border: 1px solid #E7E8E8; padding: 0 20px; background-color: #fff; border-radius: 6px; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06);">
+      <h1>Congrats on deploying to Aptible!</h1>
 
-    <h3 style="color: #4361FF;">You're seeing this page because you've hit a 500 error.</h3>
+      <h3 style="color: #4361FF;">You're seeing this page because you've hit a 500 error.</h3>
 
-    <p>
-      If this is your first time deploying, it's probably because
-      you don't have a Database associated with your App.
-    </p>
+      <p>
+        If this is your first time deploying, it's probably because
+        you don't have a Database associated with your App.
+      </p>
 
-    <p>
-      If it's not and you want to stop seeing our custom 500 error page, edit the
-      <code>config/routes.rb</code> file.
-    </p>
+      <p>
+        If it's not and you want to stop seeing our custom 500 error page, edit the
+        <code>config/routes.rb</code> file.
+      </p>
 
-    <p>
-      This template is supposed to be used with a PostgreSQL Database,
-      which you can provision on Aptible through the CLI using
-      <code>aptible db:create</code>
-      or through the Dashboard by pressing Create Database.
-    </p>
+      <p>
+        This template is supposed to be used with a PostgreSQL Database,
+        which you can provision on Aptible through the CLI using
+        <code>aptible db:create</code>
+        or through the Dashboard by pressing Create Database.
+      </p>
 
-    <p>
-      Once you have your database created, set the configuration variable
-      <code>DATABASE_URL</code>
-      to the database's connection string and redeploy!
-    </p>
+      <p>
+        Once you have your database created, set the configuration variable
+        <code>DATABASE_URL</code>
+        to the database's connection string and redeploy!
+      </p>
+    </div>
   </div>
 </div>
