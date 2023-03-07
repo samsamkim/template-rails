@@ -2,7 +2,7 @@
 
 This is a variation of the [Rails](https://rubyonrails.org/) [Getting Started](https://guides.rubyonrails.org/v4.2.7/getting_started.html) example on [Aptible](https://aptible.com).
 
-The app in this repo is deployed at [https://app-52488.on-aptible.com/](https://app-52488.on-aptible.com/).
+The app in this repo is deployed at [https://app-52710.on-aptible.com](https://app-52710.on-aptible.com).
 
 ## Deployment
 
