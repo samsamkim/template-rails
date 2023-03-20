@@ -22,14 +22,8 @@ Please complete the following steps before moving forward:
 aptible apps:create "$APP_HANDLE"
 ``` 
 3. Once provisioned, copy the App's [Git Remote](https://deploy-docs.aptible.com/docs/git-remote) from the Dashboard or when it is returned in the CLI. The Remote will be referred to as `$GIT_REMOTE` moving forward.
-4. Push the cloned repository to the Aptible Git Remote:
 
-```shell
-# Substitute $GIT_REMOTE with the copied Git Remote in step 3
-git remote add aptible "$GIT_REMOTE"
-git push aptible main
-```
-5. Create and set a `DEVELOPMENT_SECRET_KEY` to use with Rails:
+4. Create and set a `DEVELOPMENT_SECRET_KEY` to use with Rails:
 
 ```shell
 # Generate a secret key, then set it as a configuration variable in Aptible
@@ -37,6 +31,14 @@ aptible config:set --app "$APP_HANDLE" DEVELOPMENT_SECRET_KEY="$DEVELOPMENT_SECR
 ```
 
 Note: we have also defined `TEST_SECRET_KEY` and `PRODUCTION_SECRET_KEY`. We're not specifying an environment in the Dockerfile, so by default we're in the `development` environment. If you intend specify a different environment, be sure to also set the appropriate secret key as well. 
+
+5. Push the cloned repository to the Aptible Git Remote:
+
+```shell
+# Substitute $GIT_REMOTE with the copied Git Remote in step 3
+git remote add aptible "$GIT_REMOTE"
+git push aptible main
+```
 
 6. Create a default endpoint for the `CMD` service using the [aptible endpoints:https:create](https://deploy-docs.aptible.com/docs/cli-endpoints-https-create) CLI command:
 
