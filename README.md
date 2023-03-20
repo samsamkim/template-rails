@@ -2,7 +2,15 @@
 
 This is a variation of the [Rails](https://rubyonrails.org/) [Getting Started](https://guides.rubyonrails.org/v4.2.7/getting_started.html) example on [Aptible](https://aptible.com).
 
-The app in this repo is deployed at [https://app-52710.on-aptible.com](https://app-52710.on-aptible.com).
+The app in this repo is deployed live [here](https://app-52710.on-aptible.com/).
+
+## Prerequisites
+
+Please complete the following steps before moving forward:
+
+- Install [Git](https://git-scm.com/downloads)
+- Install the [Aptible CLI](https://deploy-docs.aptible.com/docs/cli)
+- Add an [SSH public key](https://deploy-docs.aptible.com/docs/public-key-authentication) to your Aptible user account.
 
 ## Deployment
 
@@ -41,6 +49,32 @@ aptible endpoints:https:create \
 ```
 
 That's it! Your web service will be live on your Endpoint URL as soon as the build finishes.
+
+## Optional Next steps:
+
+1. Provision a [PostgreSQL](https://deploy-docs.aptible.com/docs/postgresql) [Database](https://deploy-docs.aptible.com/docs/databases) for your App using the Dashboard or via the [`aptible db:create`](https://deploy-docs.aptible.com/docs/cli-db-create)CLI command, substituting `$DB_HANDLE` with the database name of your choice: 
+
+```shell
+aptible db:create "$DB_HANDLE" --type postgresql
+```
+
+2. Copy the connection string returned by `aptible db:create` command on success. This is a [Database Credential](https://deploy-docs.aptible.com/docs/database-credentials) which is needed to configure your App. This connection string can also be accessed in the Dashboard by clicking on Reveal under Credentials in the database page.  Going forward in this document, we'll refer to the Credential as `$DATABASE_URL`.
+
+3. Setup database migrations to run upon deploy to ensure your app code and database are in sync. You can tell Aptible to run your migrations by adding a [`.aptible.yml`](https://deploy-docs.aptible.com/docs/aptible-yml) file in your cloned repository. The file should be named `.aptible.yml`, and found at the root of your repository. Here is a sample `.aptible.yml` file to automate Database migrations:
+
+```yaml
+before_release:
+  - bundle exec rake db:migrate
+```
+
+4. [Configure the App](https://deploy-docs.aptible.com/docs/configuration) to point it the newly provisioned Database by adding the required environment variable. Use the [`aptible config:set`](https://deploy-docs.aptible.com/docs/cli-config-set) command as documented below, substituting `$APP_HANDLE` and `$DATABASE_URL` with their proper values.
+
+```shell
+aptible config:set --app "$APP_HANDLE" \
+    "DATABASE_URL=$DATABASE_URL"
+```
+
+This command will result in the app deploying again to reflect the updated configuration. 
 
 ## Optional Next steps:
 
