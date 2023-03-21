@@ -1,3 +1,6 @@
+<br>
+<img src="https://user-images.githubusercontent.com/4295811/226696507-217a0311-1f1c-46f8-825b-e5231cc5d462.svg"  width="300">
+
 # README
 
 This is a variation of the [Rails](https://rubyonrails.org/) [Getting Started](https://guides.rubyonrails.org/v4.2.7/getting_started.html) example on [Aptible](https://aptible.com).
